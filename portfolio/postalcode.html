@@ -1,0 +1,150 @@
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <title>Postal Code Finder</title>
+
+  <style>
+
+  #background {
+    background-image: url("http://217.199.187.193/jackwu.com/apis/bg.jpg");
+    background-size: cover;  /*this trick will display the whole image */
+    background-position: center;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding-top: 150px;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .white {
+    color: black;
+  }
+
+  p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  #result {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: grey;
+    display: none;
+  }
+
+  .whitebg {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+  }
+  </style>
+
+</head>
+
+<body>
+
+<div class="container" id="background">
+
+  <div class="row">
+
+    <div class="col-md-6 col-md-offset-3 center">
+    
+
+      <h1 class="white">Postal Code Finder</h1>
+
+      <p class="lead white">Enter an address to get the postal code.</p>
+
+      <div class="alert alert-success" id="result"></div>
+
+      <form class="form-horizontal">
+        <div class="form-group">          
+            <input type="text" id="addr" class="form-control" name="addr" placeholder="Eg. 2 Street Name, City, State, Country" autofocus>
+        </div>
+
+        <button id="submit" class="btn btn-default">Search</button>
+      </form>
+
+    </div>
+ 
+  </div>
+
+</div>
+
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<script>
+  $('#submit').click(function(event) {
+    // prevent the form being submited
+    event.preventDefault();
+
+    var addr=encodeURIComponent($("#addr").val());
+    var success = 0;
+
+    if(addr == "") {
+      $('#result').removeClass('alert-success').addClass('alert-danger');
+      $('#result').html("Please enter an address").fadeIn();
+    }
+    else {
+      // request google maps API
+      $.ajax({
+          type: "GET",
+          url: "https://maps.googleapis.com/maps/api/geocode/xml?address="+addr+"&key=AIzaSyA4IWX3znKcjCa8VwzyT8G2c5YYRy51sec" ,
+          dataType: "xml",
+          success: processXML,
+          error: failed
+      });
+    }
+
+    function failed() {
+        $('#result').removeClass('alert-success').addClass('alert-danger');
+        $('#result').html("Server can not handle request at the moment...try again later").fadeIn();
+    }
+
+    function processXML(data) {
+        $(data).find("address_component").each( function(){
+            //alert($(this).text());
+            if ($(this).find("type").text() == "postal_code") {
+                var result = $(this).find("long_name").text();
+                success = 1;
+                $('#result').removeClass('alert-danger').addClass('alert-success');
+                $('#result').html(result).fadeIn();
+            }
+
+        });
+
+        if (success == 0) {
+            $('#result').removeClass('alert-success').addClass('alert-danger');
+            $('#result').html("Can not find postal code...try again").fadeIn();
+        }
+
+    }
+
+
+
+  });
+
+
+</script>
+
+</body>
+
+</html>
+
