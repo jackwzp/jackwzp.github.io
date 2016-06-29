@@ -1,4 +1,40 @@
 #about {
-  padding-top:60px;
-  background-color:grey;
+    padding-top:60px;
+    background-color:grey;
+}
+
+#portfolio {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.showcase {
+    padding-top:10px;
+}
+
+.thumbnail {
+    padding-left: 10px;
+
+}
+
+.social {
+    list-style: none
+}
+
+.social-link {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.social li {
+    font-size: 2em;
+}
+
+.heading {
+    text-align: center;
+}
+
+#contact {
+    padding-top: 40px;
+    background-color: grey;
 }
