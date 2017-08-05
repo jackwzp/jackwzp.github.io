@@ -1,40 +1,337 @@
-#about {
-    padding-top:60px;
-    background-color:grey;
+body {
+    font-family: Avenir-Book, sans-serif;
+    background: #f7f6f5;
+    color: #212429;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-size: 100%;
+    background-position: 0 -75px;
+    background-repeat: no-repeat;
+    -webkit-animation: fadein 1s ease;
+    animation: fadein 1s ease;
+    padding: 20px
 }
 
-#portfolio {
-    padding-top: 40px;
-    padding-bottom: 40px;
+a {
+    text-decoration: none;
+    color: #212429;
+    -webkit-transition: color 0.25s;
+    transition: color 0.25s
+}
+a:hover {
+    color: #0C85AC;
+    -webkit-transition: color 0.25s;
+    transition: color 0.25s
+}
+h1 {
+    font-family: Avenir-Heavy, sans-serif;
+    font-size: 26px;
+    line-height: 40px
+}
+h1 .light {
+    font-family: Avenir-Light;
+    font-weight: 400
+}
+h3 {
+    font-weight: 300
+}
+h4 {
+    font-family: Avenir-Heavy, sans-serif;
+    font-size: 14px;
+    color: #BAADA3;
+    margin-bottom: 20px;
+    margin-top: 25px
+}
+p {
+    font-family: Avenir-Book, Avenir-Light, sans-serif;
+    font-size: 12px;
+    color: #222427;
 }
 
-.showcase {
-    padding-top:10px;
+/*ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+ul li {
+    display: inline;
+    font-family: Avenir-Medium, sans-serif;
+    font-size: 18px;
+    color: #0C85AC;
+    padding: 5px
+}
+ul li:first-of-type {
+    margin-right: 25px;
+    padding-left: 0
+}*/
+
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
-.thumbnail {
-    padding-left: 10px;
-
+.header {
+    display: flex;
+    flex-direction: row;
 }
 
-.social {
-    list-style: none
+#profile-pic {
+    border-radius: 50%;
+    margin: 20px 20px 20px 0;
+    width: 100px;
+    height: 100px;
 }
 
-.social-link {
-    padding-top: 200px;
+.intro {
+    margin-top: 10px;
+}
+
+.jumbotron {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -10px;
+    /*margin-right: 10px;*/
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info ul {
+    list-style-type: none;
+}
+
+.contact-info ul li {
+    font-family: Avenir-Medium, sans-serif;
+    font-size: 12px;
+    color: #0C85AC;
+    padding: 5px;
+}
+
+.main-info {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;    
+}
+
+.side-bar {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin-right: 20px;
+    flex: 1;
+    flex-direction: column;
+}
+
+.info {
+    flex: 2;
+}
+
+.w3-border {
+    margin-right: 20px;
+    margin-top: -10px;
+}
+
+.knowledge-list {
+    /*text-align: justify;*/
+    line-height: 18px;
+    margin-right: 20px;
+}
+
+.knowledge ul {
+    margin-left: -20px;
+    font-family: Avenir-Book, Avenir-Light, sans-serif;
+    font-size: 12px;
+    color: #222427;
+}
+
+.education-item {
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.education-item p {
+    margin: 0;
+}
+
+.experience-item {
+    margin-bottom: 20px
+}
+
+.experience-item h2 {
+    margin: 0;
+    font-family: Avenir-Heavy, sans-serif;
+    font-size: 18px;
+    color: #222427
+}
+
+.experience-item h3 {
+    margin-top: 0;
+    font-family: Avenir-Heavy, sans-serif;
+    font-size: 15px;
+    color: #222427
+}
+
+.exp-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.exp-title p {
+    margin: 5px;
+}
+
+.experience-item ul {
+    margin-left: -20px;
+}
+
+.experience-item ul li {
+    font-family: Avenir-Book, Avenir-Light, sans-serif;
+    font-size: 12px;
+    color: #222427;
+}
+
+.projects ul {
+    margin-left: -20px;
+}
+
+.projects ul li {
+    font-family: Avenir-Book, Avenir-Light, sans-serif;
+    font-size: 12px;
+    color: #222427;
+}
+
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-size: 100%;
+        background-position: 0 0
+    }
+    .one-half:first-of-type {
+        margin-right: 0;
+        margin-bottom: 50px
+    }
+    section.intro {
+        margin: 20px 0 40px 0
+    }
+    ul li {
+        display: block;
+        padding: 10px 10px 10px 0;
+        margin: 5px 0 5px 0
+    }
+    .right-col {
+        width: 100%;
+        margin-bottom: 10px
+    }
+    .left-col {
+        width: 100%;
+        margin-bottom: 5px
+    }
+    h4 {
+        margin-bottom: 20px
+    }
+    section.education,
+    section.experience {
+        margin-bottom: 40px
+    }
+    section.footer a {
+        display: block;
+        padding: 10px
+    }
+}
+
+
+/*section.experience {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px
+}*/
+
+/*.left-col {
+    width: 20%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    font-family: Avenir-Book, Avenir-Light, sans-serif;
+    font-size: 15px;
+    color: #222427;
+    letter-spacing: 1px;
+    padding-right: 20px
+}
+.right-col {
+    width: 80%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 20px
+}
+.right-col h2 {
+    margin: 0;
+    font-family: Avenir-Heavy, sans-serif;
+    font-size: 18px;
+    color: #222427
+}
+.right-col h3 {
+    margin-top: 0;
+    font-family: Avenir-Heavy, sans-serif;
+    font-size: 15px;
+    color: #222427
+}
+*/
+
+
+/*section.intro {
+    margin: 0
+}
+section.intro a {
+    color: #0C85AC
+}
+section.intro a:hover {
+    color: #222427
+}
+section.intro li a::after {
+    content: url('arrow.svg');
+    padding: 0 2px 0 10px;
+    position: relative;
+    top: -3px;
+    right: 0;
+    -webkit-transition: right 0.75s ease;
+    transition: right 0.75s ease
+}
+section.intro li a:hover::after {
+    right: -10px;
+    -webkit-transition: right 0.5s ease;
+    transition: right 0.5s ease
+}*/
+
+
+/*section.footer {
     text-align: center;
+    margin: 75px auto 75px auto;
+    max-width: 260px
 }
-
-.social li {
-    font-size: 2em;
+section.footer p {
+    font-family: Avenir-Medium, sans-serif;
+    font-size: 18px;
+    color: #222427;
+    line-height: 30px
 }
-
-.heading {
+section.footer a {
+    color: #0C85AC
+}
+section.footer a:hover {
+    color: #000
+}
+section.footer .sunset {
     text-align: center;
+    margin-top: 60px
 }
-
-#contact {
-    padding-top: 40px;
-    background-color: grey;
-}
+section.footer .sunset img {
+    width: 50px;
+    height: 50px
+}*/
