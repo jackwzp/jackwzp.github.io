@@ -191,6 +191,12 @@ ul li:first-of-type {
     margin: 0;
 }
 
+.education-year {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .experience-item {
     margin-bottom: 20px
 }
